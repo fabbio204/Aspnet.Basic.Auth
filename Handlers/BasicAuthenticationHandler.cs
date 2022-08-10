@@ -36,6 +36,7 @@ public class BasicAuthenticationHandler : AuthenticationHandler<AuthenticationSc
             byte[] credentialsByes = Convert.FromBase64String(authHeader.Parameter);
             string[] credentials = Encoding.UTF8.GetString(credentialsByes).Split(':');
 
+            // Usa o Task.Run para simular uma consulta a um banco de dados, por exemplo
             string? configuredUserName = await Task.Run(() =>  _configuration["BasicAuth:Username"]);
             string? configuredPassword = await Task.Run(() =>  _configuration["BasicAuth:Password"]);
 

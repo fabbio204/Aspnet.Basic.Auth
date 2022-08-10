@@ -18,7 +18,7 @@ builder.Services.AddApiVersioning(config =>
     config.AssumeDefaultVersionWhenUnspecified = true;
 });
 
-// Adiciona a autenticação Basic
+// Configura a autenticação Basic
 builder.Services.AddAuthentication(BasicAuthenticationHandler.SCHEMA)
     .AddScheme<AuthenticationSchemeOptions, BasicAuthenticationHandler>(BasicAuthenticationHandler.SCHEMA, null);
 

@@ -6,8 +6,15 @@ namespace Aspnet.Basic.Auth.Controllers;
 
 [ApiController]
 [Produces("application/json")]
-[ApiVersion("1.0")]
+
+// Versão da API
+[ApiVersion("1.0", Deprecated = false)]
+
+// Configura a rota com a versão da API
 [Route("api/v{version:apiVersion}/[controller]")]
+
+// Usa o schema configurado no Program.cs para autenticar o usuário
+// Sem essa configuração "AuthenticationSchemes" o BasicAuthenticationHandler não é chamado
 [Authorize(AuthenticationSchemes = BasicAuthenticationHandler.SCHEMA)]
 public class UsuarioController : ControllerBase
 {
